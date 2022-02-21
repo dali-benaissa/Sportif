@@ -96,8 +96,8 @@
                 <td style="font-weight: bolder">{{ exercice.Mouvement }}</td>
                 <td style="color: #750104;font-weight: bolder">{{ exercice.descExercice }}</td>
                 <td>
-                    <a href="{{ path('exercice_show', {'id': exercice.id}) }}">show</a>
-                    <a href="{{ path('exercice_edit', {'id': exercice.id}) }}">edit</a>
+                    <a style="font-weight: bolder"  href="{{ path('exercice_show', {'id': exercice.id}) }}">Voir</a>
+                    <a href="{{ path('exercice_edit', {'id': exercice.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -108,5 +108,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('exercice_new') }}">Create new</a>
+    <a style="font-weight: bolder" href="{{ path('exercice_new') }}">Ajouter Nouveau</a>
 {% endblock %}

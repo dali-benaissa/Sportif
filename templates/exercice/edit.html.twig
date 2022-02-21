@@ -4,10 +4,22 @@
 
 {% block body %}
     <h1>Edit Exercice</h1>
+    <style>
+
+        body{
+            background-image: url("https://contents.mediadecathlon.com/p2091958/k$bd51244f547e4514346bc470ac09e352/1080x0/1cr1/ma-routine-sur-tapis.jpg?format=auto");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+
+        }
+
+
+    </style>
 
     {{ include('exercice/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('exercice_index') }}">back to list</a>
+    <a style="font-weight: bolder" href="{{ path('exercice_index') }}">back to list</a>
 
     {{ include('exercice/_delete_form.html.twig') }}
 {% endblock %}

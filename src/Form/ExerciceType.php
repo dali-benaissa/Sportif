@@ -12,8 +12,8 @@ class ExerciceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('code_exercice')
-            ->add('Mouvement')
+           ->add('code_exercice')
+             ->add('Mouvement')
             ->add('desc_exercice')
         ;
     }

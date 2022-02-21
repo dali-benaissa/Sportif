@@ -5,6 +5,17 @@
 {% block body %}
     <h1>Edit Regime</h1>
 
+    <style>
+        body{
+            background-image: url("https://images.anaca3.com/wp-content/uploads/2018/06/comment-perdre-2-kg-en-10-jours-1000x516.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+
+        }
+
+    </style>
+
     {{ include('regime/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('regime_index') }}">back to list</a>

@@ -3,32 +3,50 @@
 {% block title %}Exercice{% endblock %}
 
 {% block body %}
+
+
+
+    <div style="padding-left:16px">
+        <style>
+            body{
+                background-image: url("https://resize.prod.docfr.doc-media.fr/rcrop/1200,902,center-middle/img/var/doctissimo/storage/images/fr/www/forme/diaporamas/citation-sport-motivation/1853618-3-fre-FR/30-citations-qui-nous-motivent-a-faire-du-sport.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+
+        </style>
+    </div>
+
+    </body>
+    </html>
+
     <h1>Exercice</h1>
 
     <table class="table" border="2">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ exercice.id }}</td>
+                <td style="font-weight: bolder">{{ exercice.id }}</td>
             </tr>
             <tr>
                 <th>Code_exercice</th>
-                <td>{{ exercice.codeExercice }}</td>
+                <td style="font-weight: bolder">{{ exercice.codeExercice }}</td>
             </tr>
             <tr>
                 <th>Mouvement</th>
-                <td>{{ exercice.Mouvement }}</td>
+                <td style="font-weight: bolder">{{ exercice.Mouvement }}</td>
             </tr>
             <tr>
                 <th>Desc_exercice</th>
-                <td>{{ exercice.descExercice }}</td>
+                <td style="font-weight: bolder">{{ exercice.descExercice }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('exercice_index') }}">back to list</a>
+    <a style="font-weight: bolder" href="{{ path('exercice_index') }}">Retourner</a>
 
-    <a href="{{ path('exercice_edit', {'id': exercice.id}) }}">edit</a>
+    <a style="font-weight: bolder" href="{{ path('exercice_edit', {'id': exercice.id}) }}">Modifier</a>
 
     {{ include('exercice/_delete_form.html.twig') }}
 {% endblock %}
