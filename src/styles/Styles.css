@@ -1,0 +1,394 @@
+ 
+#btnInsert{
+    -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+#btnInsert:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnInsert:hover{
+    -fx-background-color:white; 
+       
+ }
+  
+ #btnDelete{
+         -fx-background-color:#f0e68c; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+ }
+ 
+ 
+#btnDelete:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnDelete:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ 
+ #btnUpdate{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnUpdate:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnUpdate:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ 
+ #btnRecherche{
+                -fx-background-color:#8fbc8f; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+ }
+ 
+  #btnRecherche:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnRecherche:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ #btnPdf{
+                     -fx-background-color:#ff7f50; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ } 
+ 
+  
+  #btnPdf:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnPdf:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ #AnchorPane{
+    -fx-background-image: url("https://www.studyrama.com/local/cache-gd2/1b/880501fe9f40b4ca5020bf732e2294.jpg?1607617252");
+    -fx-background-size:cover; 
+}
+ 
+ 
+ 
+#btninsert{
+    -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+#btninsert:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btninsert:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ #btndelete{
+     -fx-background-color:#f0e68c; 
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+ }
+ 
+ 
+#btndelete:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btndelete:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+ 
+ #btnupdate{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnupdate:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+  #btnupdate:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+  #Anchorregime{
+    -fx-background-image: url("https://resize2.prod.docfr.doc-media.fr/rcrop/1200,678,center-middle/img/var/doctissimo/storage/images/fr/www/nutrition/news/des-experts-elisent-le-regime-alimentaire-le-plus-sain-et-le-plus-efficace/7497686-1-fre-FR/des-experts-elisent-le-regime-alimentaire-le-plus-sain-et-le-plus-efficace.jpg"); 
+    -fx-background-size:cover;
+    
+  }
+  
+  
+   #btnexercice{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnexercice:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnexercice:hover{
+    -fx-background-color:white; 
+       
+ }
+   #btnregime{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnregime:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnregime:hover{
+    -fx-background-color:white; 
+       
+ }
+      #btnraz{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnraz:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnraz:hover{
+    -fx-background-color:white; 
+       
+ }
+         #btnrecherche{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnrecherche:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnrecherche:hover{
+    -fx-background-color:white; 
+       
+ }
+ 
+          #btnReset{
+              -fx-background-color:#FFFF00; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnReset:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnReset:hover{
+    -fx-background-color:white;  
+       
+ }
+ 
+ 
+          #btnImc{
+              -fx-background-color:#FA8072; 
+        
+     -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+     
+     
+     
+ }
+ 
+ #btnImc:pressed{
+    -fx-border-color: white;
+     -fx-background-color: white; 
+     -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+  #btnImc:hover{
+    -fx-background-color:white;  
+       
+ }
+ 
+ 
+ 
+    #Anchorrimc{
+    -fx-background-image: url("https://www.clinique-espoir-tunisie.fr/wp-content/uploads/2021/10/calcul-IMC-indice-de-masse-corporelle.jpg");
+    -fx-background-size:cover; 
+}
+ 

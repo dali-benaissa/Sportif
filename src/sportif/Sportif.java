@@ -37,7 +37,7 @@ public class Sportif {
     
       //  System.out.println(p1.readExercices());
     
-     //   System.out.println( p1.RechercheById(24));
+     //  System.out.println( p1.RechercheById(24));
        
        // System.out.println(p1.getByCode("3issa"));
         

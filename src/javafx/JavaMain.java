@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.xemacscode.demo;
+package javafx;
 
+
+ 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,9 +21,12 @@ public class JavaMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/DemoCRUD.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("/javafx/DemoCRUD.fxml"));
+            
        Scene scene = new Scene(root);
+        
+     scene.getStylesheets().add(getClass().getResource("/styles/Styles.css").toExternalForm());
+      
         
        stage.setScene(scene);
         stage.show();
@@ -35,3 +40,13 @@ public class JavaMain extends Application {
     }
     
 }
+
+
+
+
+
+
+
+
+
+

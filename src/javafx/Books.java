@@ -26,7 +26,7 @@ public class Books {
         return code_exercice;
     }
 
-    public String getMouvement() {
+    public String getMouvement() { 
         return mouvement;
     }
 
@@ -41,6 +41,8 @@ public class Books {
     public void setId(int id) {
         this.id = id;
     }
+    
+    
     
     
 }

@@ -6,7 +6,10 @@
 package javafx;
  
  
- 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -16,8 +19,10 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.mysql.jdbc.Connection;
+import javafx.scene.input.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -36,13 +41,18 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.stage.Stage;
+
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -51,7 +61,13 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import models.Exercice;
+import org.apache.commons.lang3.StringUtils;
+import org.codehaus.plexus.util.CollectionUtils;
 import services.ServiceExercice;
+
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -59,8 +75,15 @@ import services.ServiceExercice;
  * @author 21621
  */
 public class DemoCRUDController implements Initializable {
-
     
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
+    
+
+    int index = -1 ;
+      
     ServiceExercice s = new ServiceExercice();
    
     @FXML
@@ -84,21 +107,30 @@ public class DemoCRUDController implements Initializable {
     @FXML
     private Button btnUpdate;
     @FXML
-    private TableColumn<Books, Integer> colId;
+    private Button btnregime;
+ 
+ 
     @FXML
     private TextField tfId;
     @FXML
     private TextField tfRecherche;
     @FXML
     private Button btnRecherche;
-    
-    /**
+
+    private Books selectedBook ;
+    private ObservableList<Books> bookList ;
+    /** 
      * Initializes the controller class.
      */
+    
+        
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        showBooks();
+        
+            
+        showBooks(null);
        
    
     }
@@ -118,6 +150,20 @@ public class DemoCRUDController implements Initializable {
     }
     
     
+        @FXML
+            public void switchtoregime(ActionEvent event) throws IOException{
+               
+                    root = FXMLLoader.load(getClass().getResource("/javafx/Demoregime.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+        
+   //  scene.getStylesheets().add(getClass().getResource("/styles/Styles.css").toExternalForm());
+      
+        stage.setScene(scene);
+        stage.show();
+           }
+    
+    
     public Connection getConnection(){
             Connection conn;
             try{
@@ -133,7 +179,7 @@ public class DemoCRUDController implements Initializable {
     }
     
     public ObservableList<Books> getBookList(){  
-        ObservableList<Books> bookList = FXCollections.observableArrayList();
+         bookList = FXCollections.observableArrayList();
         Connection conn = getConnection();
         String query = "SELECT * FROM books";
          Statement st;
@@ -143,6 +189,7 @@ public class DemoCRUDController implements Initializable {
          st = conn.createStatement();
          rs = st.executeQuery(query);
         Books books;
+       // bookList.removeAll(bookList);
         while(rs.next()){
             books = new Books(rs.getInt("id"), rs.getString("code_exercice"), rs.getString("mouvement"), rs.getString("description"));
             bookList.add(books);
@@ -156,43 +203,79 @@ public class DemoCRUDController implements Initializable {
     
     }
     
-    public void showBooks(){
-         ObservableList<Books> list = getBookList();
+    public void showBooks(String cher){
+       ObservableList<Books> list  ; 
+        if(cher != null){
+         list = getBookListFromSearch(cher); 
+        }
+        else{
+           list = getBookList();
+        }
+         
          
          colCode.setCellValueFactory(new PropertyValueFactory<Books, String>("code_exercice"));
          colMouvement.setCellValueFactory(new PropertyValueFactory<Books, String>("mouvement"));
          colDescription.setCellValueFactory(new PropertyValueFactory<Books, String>("description"));
-          colId.setCellValueFactory(new PropertyValueFactory<Books, Integer>("id"));
 
          
          tvBooks.setItems(list);
          
     }
     private void insertRecord(){
+        if (tfCode.getText().length()== 0 || tfMouvement.getText().length() == 0 ||  tfDescription.getText().length() == 0){
+            
+              JOptionPane.showMessageDialog(null, "Elément Vide!");
+                                  clear();  
+
+        }
+        else{
         String query = "INSERT INTO books (code_exercice,mouvement,description)  VALUES ('" + tfCode.getText() + "','" + tfDescription.getText() + "','"
                             + tfMouvement.getText() + "')";
         
         System.out.println(query);
         executeQuery(query);
-        showBooks();
+        
+        JOptionPane.showMessageDialog(null, "exercice ajouter avec succés");
+        showBooks(null);
+        
+        
+        
+        
+        
+                    clear();
+        }
     }
  
     private void updateRecord(){
-     String query = "UPDATE books SET code_exercice = '" + tfCode.getText() + "', description = '" + tfDescription.getText() + "', mouvement = '" 
-                            + tfMouvement.getText() + "' WHERE id = " + tfId.getText() ;
+        if(selectedBook != null){
+               String query = "UPDATE books SET code_exercice = '" + tfCode.getText() + "', description = '" + tfDescription.getText() + "', mouvement = '" 
+                            + tfMouvement.getText() + "' WHERE id = " + selectedBook.getId();
              
      System.out.println(query);
         executeQuery(query);
-        showBooks();
+        showBooks(null);  
+        
+        clear();
+        }
+
+    }
+    private void clear(){
+          tfCode.setText(StringUtils.EMPTY);
+          tfMouvement.setText(StringUtils.EMPTY);
+          tfDescription.setText(StringUtils.EMPTY);
+          selectedBook = null;
+          showBooks(null);
     }
     
-    
     private void  deleteButton(){
-        
-        String query = "DELETE FROM books WHERE id =" + tfId.getText() ;
+        if(selectedBook != null) {
+         String query = "DELETE FROM books WHERE id =" + selectedBook.getId() ;
          System.out.println(query);
         executeQuery(query);
-        showBooks();
+        showBooks(null);
+            clear();
+        }
+       
     }
     
     
@@ -208,6 +291,21 @@ public class DemoCRUDController implements Initializable {
                     input.toLowerCase().contains(word.toLowerCase()));
         }).collect(Collectors.toList());
     }
+     
+       @FXML
+   private  void getSelected (MouseEvent event) {
+         //index = tvBooks.getSelectionModel().getSelectedIndex();
+           selectedBook = tvBooks.getSelectionModel().getSelectedItem();
+         if (selectedBook == null){
+             
+             return; 
+         }
+         tfCode.setText(selectedBook.getCode_exercice());
+          tfMouvement.setText(selectedBook.getMouvement());
+          tfDescription.setText(selectedBook.getDescription());
+           System.out.println("code "+selectedBook.getCode_exercice()+" ++++ id  "+selectedBook.getId());
+         
+     }
 
      
 
@@ -313,12 +411,48 @@ public class DemoCRUDController implements Initializable {
        } catch (FileNotFoundException e) {
        // TODO Auto-generated catch block
        e.printStackTrace();
-       }
+       }   
 
+         
+       
+    }
+
+    @FXML
+    private void rech(ActionEvent event) {
+      String cher =  tfRecherche.getText();
+        if(! bookList.isEmpty() && cher != null){
+            showBooks(cher);
+        }
+        else{
+            showBooks(null);
+        }
+        
     }
     
+   
+    private ObservableList<Books> getBookListFromSearch(String cher){  
+        return 
+                      bookList.stream().filter(b->(b.getCode_exercice().toLowerCase().contains(cher.toLowerCase())||b.getDescription().toLowerCase().contains(cher.toLowerCase()) 
+                    || b.getMouvement().toLowerCase().contains(cher.toLowerCase()))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+       
+    }
+    
+    @FXML
+    private void reset(ActionEvent event) throws DocumentException, SQLException, ClassNotFoundException {
+        
+    
+    clear();
+ 
+       tfRecherche.setText(StringUtils.EMPTY);
+             ObservableList<Books> list = FXCollections.observableArrayList(); 
+
+   
+     }
+    
+}
+
  
     
     
-    
-}
+   
+
